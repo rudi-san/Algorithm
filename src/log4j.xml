@@ -9,13 +9,21 @@
       </layout>
    </appender>
 
-   <category name="de.kbs.algo2.knapsack">
-      <priority value="debug"/>
-   </category>
+  <appender name="FILE" class="org.apache.log4j.DailyRollingFileAppender">
+    <param name="file" value="algo2.log" />
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="ConversionPattern" value="%d %-5p [%c] (%t:%x) %m%n"/>
+    </layout>
+  </appender>
 
-   <root>
-      <priority value="WARN"/>
+   <category name="de.rudi.algo2">
+      <priority value="fatal"/>
       <appender-ref ref="CONSOLE"/>
+   </category>
+ 
+    <root>
+      <priority value="FATAL"/>
+      <appender-ref ref="FILE"/>
    </root>
 
 </log4j:configuration>
